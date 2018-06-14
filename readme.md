@@ -13,32 +13,57 @@ npm i -g mdc
 
 ### `mdc *.md -o output/ --no-index? --no-json?`
 
-Compiles each markdown file into an HTML file, using an index.json to store the front matters and paths.
+Compiles each markdown file into an HTML file, using an `index.json` to store the front matters and paths:
 
-With --no-index, instead of anindex.json file, separate JSON files of the front matters are created alongside the HTML files (as *-info.json).
+```shell
+$ mdc *.md -o dist
+# Results in:
+# .
+# ├── dist
+# │   ├── 2018-06-13-test-article-1.html
+# │   ├── 2018-06-13-test-article-2.html
+# │   └── index.json
+# ├── test-article-1.md
+# └── test-article-2.md
+```
 
-With --no-json, JSON and front matter is omitted entirely.
+With `--no-index`, instead of an `index.json` file, separate JSON files of the front matters are created alongside the HTML files (as `*-info.json`):
 
-With one input, you can omit -o or --output to use stdout instead.
+```shell
+$ mdc *.md -o dist --no-index
+# Results in:
+# .
+# ├── dist
+# │   ├── 2018-06-13-test-article-1.html
+# │   ├── 2018-06-13-test-article-1-info.json
+# │   ├── 2018-06-13-test-article-2.html
+# │   └── 2018-06-13-test-article-2-info.json
+# ├── test-article-1.md
+# └── test-article-2.md
+```
 
-Every input must have 'title', 'author', 'created', and 'license' properties.
+With `--no-json`, JSON and front matter is omitted entirely:
+
+```shell
+$ mdc *.md -o dist --no-json
+# Results in:
+# .
+# ├── dist
+# │   ├── 2018-06-13-test-article-1.html
+# │   └── 2018-06-13-test-article-2.html
+# ├── test-article-1.md
+# └── test-article-2.md
+```
+
+With one input, you can omit `-o` or `--output` to use stdout instead:
 
 ```shell
 # Compile to stdout
 $ mdc input.md
-
-# Compile to stdout as HTML only
 $ mdc input.md --no-json
-
-# Compile to dist/ with dist/index.json
-$ mdc a.md b.md -o dist
-
-# Compile to dist/ with separate JSON files
-$ mdc a.md b.md -o dist --no-index
-
-# Compile to dist/ with no JSON files
-$ mdc a.md b.md -o dist --no-json
 ```
+
+Every input must have 'title', 'author', 'created', and 'license' properties.
 
 ### `mdc(input, output?)`
 

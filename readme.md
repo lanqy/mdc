@@ -84,7 +84,24 @@ let result = await mdc('./input.md')
 // result.htmlBody
 ```
 
-See [lib/schema.js][8] for more info on the return value.
+### What does front matter look like?
+
+The front matter is a block of YAML prefixing the document.  See [lib/schema.js][8] and `mdc --help` for more info on the values.
+
+For example:
+
+```md
+---
+title: Test Article 1
+created: 2018-06-14
+author: Jamen Marz
+license: public-domain
+---
+
+# Test Article 1
+
+Hello world, foo bar
+```
 
 ### License Types
 

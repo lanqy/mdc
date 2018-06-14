@@ -6,7 +6,7 @@ Compile directory of markdown into HTML and JSON fragments.
 ## Install
 
 ```shell
-npm i -g mdc
+npm i -g @jamen/mdc
 ```
 
 ## Usage

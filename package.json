@@ -1,6 +1,6 @@
 {
   "name": "@jamen/mdc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Compile directory of markdown into HTML and JSON fragments.",
   "author": "Jamen Marz <jamenmarz@gmail.com>",
   "main": "lib/mdc.js",
